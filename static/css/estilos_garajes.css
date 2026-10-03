@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --azul-marino: #0B2D5B;
+    --verde-esmeralda: #00C896;
+    --gris-claro: #F4F7FA;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background: var(--gris-claro);
+    color: var(--azul-marino);
+}
+
+/* NAV */
+.garaje-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.garaje-nav__logo {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--azul-marino);
+    text-decoration: none;
+}
+
+.garaje-nav__logo span { color: var(--verde-esmeralda); }
+
+.garaje-nav__link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--azul-marino);
+    text-decoration: none;
+}
+
+.garaje-nav__link ion-icon { font-size: 1.1rem; }
+
+.garaje-nav__link--cta {
+    background: var(--verde-esmeralda);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.garaje-nav__link--cta:hover { background: var(--azul-marino); }
+
+/* PAGE */
+.garaje-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 30px 80px;
+}
+
+.garaje-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+.garaje-subtitle {
+    font-size: 0.9rem;
+    color: #8a94a6;
+    margin: 0 0 30px;
+}
+
+/* FORM CARD */
+.garaje-form-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 640px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.garaje-form {
+    display: grid;
+    gap: 18px;
+}
+
+.garaje-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.garaje-field {
+    display: grid;
+    gap: 6px;
+}
+
+.garaje-field label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--azul-marino);
+}
+
+.garaje-field input,
+.garaje-field textarea {
+    border: 1px solid #e2e6ec;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    color: var(--azul-marino);
+    resize: vertical;
+}
+
+.garaje-field input:focus,
+.garaje-field textarea:focus {
+    outline: none;
+    border-color: var(--verde-esmeralda);
+}
+
+.garaje-input-icon {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e2e6ec;
+    border-radius: 10px;
+    padding: 0 12px;
+}
+
+.garaje-input-icon:focus-within { border-color: var(--verde-esmeralda); }
+
+.garaje-input-icon ion-icon,
+.garaje-prefix {
+    color: #8a94a6;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.garaje-input-icon input {
+    border: none;
+    padding: 12px 8px;
+    flex: 1;
+}
+
+.garaje-input-icon input:focus { outline: none; }
+
+/* TOGGLE */
+.garaje-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: 0.2s;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.switch input:checked + .slider { background-color: var(--verde-esmeralda); }
+.switch input:checked + .slider::before { transform: translateX(20px); }
+
+/* ACTIONS */
+.garaje-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.garaje-btn {
+    flex: 1;
+    text-align: center;
+    padding: 13px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.garaje-btn--primary {
+    background: var(--verde-esmeralda);
+    color: #fff;
+}
+
+.garaje-btn--primary:hover {
+    background: var(--azul-marino);
+    transform: translateY(-2px);
+}
+
+.garaje-btn--outline {
+    background: transparent;
+    color: var(--azul-marino);
+    border: 1px solid #e2e6ec;
+}
+
+.garaje-btn--outline:hover { background: var(--gris-claro); }
+
+.garaje-msg {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.garaje-msg--error { background: #fdecea; color: #c0392b; }
+.garaje-msg--success { background: #e8f8f2; color: #0d9d6f; }
+
+/* GRID DE TARJETAS (Mis garajes) */
+.garaje-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.garaje-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.garaje-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.garaje-card__image {
+    width: 100%;
+    height: 160px;
+    background-color: var(--gris-claro);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.garaje-card__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.garaje-card__badge--on { background: var(--verde-esmeralda); }
+.garaje-card__badge--off { background: #b0b8c4; }
+
+.garaje-card__body { padding: 20px; }
+
+.garaje-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.garaje-card__address {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #8a94a6;
+    margin-bottom: 14px;
+}
+
+.garaje-card__prices {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.garaje-card__price {
+    font-size: 0.8rem;
+    color: var(--azul-marino);
+}
+
+.garaje-card__price strong { display: block; font-size: 1rem; }
+
+.garaje-card__actions {
+    display: flex;
+    gap: 8px;
+}
+
+.garaje-card__actions button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px;
+    border-radius: 8px;
+    border: 1px solid #e2e6ec;
+    background: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--azul-marino);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.garaje-card__actions button:hover { background: var(--gris-claro); }
+
+.garaje-card__actions .btn-delete:hover {
+    background: #fdecea;
+    color: #c0392b;
+    border-color: #fdecea;
+}
+
+/* EMPTY STATE */
+.garaje-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.garaje-empty ion-icon {
+    font-size: 3rem;
+    color: var(--verde-esmeralda);
+    margin-bottom: 16px;
+}
+
+.garaje-empty h3 { margin: 0 0 8px; }
+.garaje-empty p { color: #8a94a6; margin: 0 0 20px; }
+
+@media (max-width: 600px) {
+    .garaje-row { grid-template-columns: 1fr; }
+    .garaje-form-card { padding: 28px 20px; }
+}
+
+/* BOTTOM NAV (propietario) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+    z-index: 500;
+}
+
+.bottom-nav__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    color: #8a94a6;
+    font-size: 0.7rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.bottom-nav__item ion-icon {
+    font-size: 1.4rem;
+}
+
+.bottom-nav__item--active,
+.bottom-nav__item:hover {
+    color: var(--verde-esmeralda);
+}
+
+/* Espacio extra abajo para que el bottom nav no tape contenido */
+.garaje-page {
+    padding-bottom: 100px;
+}
+
+/* SUBIDA DE IMAGEN */
+.garaje-upload {
+    position: relative;
+    border: 2px dashed #d5dae2;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.garaje-upload:hover {
+    border-color: var(--verde-esmeralda);
+    background-color: #f7fdfb;
+}
+
+.garaje-upload__preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 40px 20px;
+    color: #8a94a6;
+    text-align: center;
+}
+
+.garaje-upload__preview ion-icon {
+    font-size: 2rem;
+    color: #b0b8c4;
+}
+
+.garaje-upload__preview p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--azul-marino);
+}
+
+.garaje-upload__preview small {
+    font-size: 0.75rem;
+}
+
+.garaje-upload__img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.garaje-upload__remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+}

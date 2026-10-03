@@ -19,16 +19,17 @@
             </div>
 
             <ul class="nav_link nav_link--menu">
-                <li class="nav__items"><a href="#" class="nav__links">Inicio</a></li>
-                <li class="nav__items"><a href="#" class="nav__links">¿Cómo funciona?</a></li>
-                <li class="nav__items"><a href="#" class="nav__links">Beneficios</a></li>
+                <li class="nav__items"><a href="#inicio" class="nav__links">Inicio</a></li>
+                <li class="nav__items"><a href="#como-funciona" class="nav__links">¿Cómo funciona?</a></li>
+                <li class="nav__items"><a href="#funciones" class="nav__links">Funciones</a></li>
+                <li class="nav__items"><a href="#beneficios" class="nav__links">Beneficios</a></li>
                 <li class="nav__items"><a href="#" class="nav__links">App</a></li>
-                <li class="nav__items"><a href="#" class="nav__links">Tarifas</a></li>
+                <li class="nav__items"><a href="#tarifas" class="nav__links">Tarifas</a></li>
                 <a href="{{ url_for('login') }}" class="nav__links">Iniciar sesión</a>
 
                 </li>
 
-                <li class="nav__items"><a href="#" class="nav__links">Contacto</a></li>
+                <li class="nav__items"><a href="#contacto" class="nav__links">Contacto</a></li>
 
                 <img src="{{ url_for('static', filename='images/close.svg') }}" alt="" class="nav_close">
             </ul>
@@ -38,7 +39,7 @@
             </div>
         </nav>
 
-        <section class="hero__container container">
+        <section class="hero__container container" id="inicio">
             <h1 class="hero_title">Encuentra parqueadero en segundos. Reserva, paga y conduce sin estrés.</h1>
             <p class="hero__paragraph">
                 Con la app de ParkSpotter podrás reservar parqueaderos o publicar un parqueadero que no estés usando para obtener ingresos.
@@ -49,8 +50,61 @@
 
     <main>
 
-        <!-- SECCIÓN ABOUT -->
-        <section class="container about">
+        <!-- SECCIÓN CÓMO FUNCIONA -->
+        <section class="how container" id="como-funciona">
+            <h2 class="subtitle">¿Cómo funciona ParkSpotter?</h2>
+            <p class="how__intro">Una plataforma pensada para conductores y propietarios de garajes.</p>
+
+            <div class="how__group">
+                <h3 class="how__group-title">Para conductores</h3>
+                <div class="how__steps">
+                    <div class="how__step">
+                        <span class="how__number">1</span>
+                        <h4>Busca</h4>
+                        <p>Encuentra parqueaderos disponibles cerca de ti en tiempo real.</p>
+                    </div>
+                    <div class="how__step">
+                        <span class="how__number">2</span>
+                        <h4>Reserva</h4>
+                        <p>Aparta tu espacio con anticipación desde la app.</p>
+                    </div>
+                    <div class="how__step">
+                        <span class="how__number">3</span>
+                        <h4>Paga seguro</h4>
+                        <p>Realiza el pago de forma digital, sin efectivo ni tarifas confusas.</p>
+                    </div>
+                    <div class="how__step">
+                        <span class="how__number">4</span>
+                        <h4>Estaciona sin estrés</h4>
+                        <p>Llega directo a tu espacio y ahorra tiempo y emisiones de CO₂.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="how__group">
+                <h3 class="how__group-title">Para propietarios de garajes</h3>
+                <div class="how__steps">
+                    <div class="how__step">
+                        <span class="how__number">1</span>
+                        <h4>Publica tu espacio</h4>
+                        <p>Registra tu garaje o parqueadero en desuso en minutos.</p>
+                    </div>
+                    <div class="how__step">
+                        <span class="how__number">2</span>
+                        <h4>Recibe reservas</h4>
+                        <p>Conectamos tu espacio con conductores que lo necesitan cerca de ti.</p>
+                    </div>
+                    <div class="how__step">
+                        <span class="how__number">3</span>
+                        <h4>Genera ingresos</h4>
+                        <p>Convierte un espacio vacío en una fuente adicional de ingresos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN FUNCIONES -->
+        <section class="container about" id="funciones">
             <h2 class="subtitle">¿Qué te ofrece ParkSpotter?</h2>
             <p class="about__paragraph">
                 Optimización total de tu experiencia al buscar, reservar y gestionar parqueaderos en Bogotá.
@@ -85,6 +139,54 @@
             </div>
         </section>
 
+        <!-- SECCIÓN BENEFICIOS -->
+        <section class="benefits container" id="beneficios">
+            <h2 class="subtitle">Beneficios de usar ParkSpotter</h2>
+            <p class="benefits__intro">
+                Más que una app de parqueo: un aporte real a tu día a día y a la movilidad de Bogotá.
+            </p>
+
+            <div class="benefits__grid">
+
+                <article class="benefits__card">
+                    <ion-icon name="time-outline"></ion-icon>
+                    <h3>Ahorra tiempo</h3>
+                    <p>Olvídate de dar vueltas buscando parqueadero; encuentra y reserva en segundos.</p>
+                </article>
+
+                <article class="benefits__card">
+                    <ion-icon name="leaf-outline"></ion-icon>
+                    <h3>Reduce tu huella ambiental</h3>
+                    <p>Menos tiempo circulando significa menos emisiones de CO₂ para la ciudad.</p>
+                </article>
+
+                <article class="benefits__card">
+                    <ion-icon name="cash-outline"></ion-icon>
+                    <h3>Genera ingresos extra</h3>
+                    <p>Si tienes un garaje sin usar, conviértelo en una fuente de ingresos pasivos.</p>
+                </article>
+
+                <article class="benefits__card">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <h3>Seguridad garantizada</h3>
+                    <p>Pagos digitales protegidos y espacios verificados, sin manejar efectivo.</p>
+                </article>
+
+                <article class="benefits__card">
+                    <ion-icon name="happy-outline"></ion-icon>
+                    <h3>Menos estrés al conducir</h3>
+                    <p>Llega a tu destino sabiendo que ya tienes un lugar asegurado.</p>
+                </article>
+
+                <article class="benefits__card">
+                    <ion-icon name="business-outline"></ion-icon>
+                    <h3>Mejor movilidad urbana</h3>
+                    <p>Ayudas a descongestionar las vías de Bogotá con cada reserva.</p>
+                </article>
+
+            </div>
+        </section>
+
         <!-- SECCIÓN KNOWLEDGE -->
         <section class="knowledge">
             <div class="knowledge__container container">
@@ -102,31 +204,97 @@
             </div>
         </section>
 
-        <!-- SECCIÓN PRECIOS -->
-        <section class="price">
-            <h2 class="subtitle">Tarifas claras y sin sorpresas</h2>
+       <!-- SECCIÓN PRECIOS -->
+<section class="price" id="tarifas">
+    <h2 class="subtitle">Tarifas claras y sin sorpresas</h2>
+    <p class="price__intro">Elige el plan que mejor se adapte a ti, sin costos ocultos.</p>
 
-            <div class="price__table">
+    <div class="price__table">
 
-                <div class="price__element">
-                    <h3 class="plan__price">Tarifa por hora</h3>
-                    <div class="price__items">
-                        <p class="price__features">Perfecto para zonas comerciales</p>
+        <div class="price__element">
+            <p class="price__name">Tarifa por hora</p>
+            <h3 class="plan__price">$3.000<span class="plan__period">/hora</span></h3>
+            <p class="price__desc">Perfecto para zonas comerciales y visitas cortas</p>
+            <div class="price__items">
+                <p class="price__features">✔ Pago solo por el tiempo usado</p>
+                <p class="price__features">✔ Sin permanencia mínima</p>
+                <p class="price__features">✔ Ideal para trámites o compras rápidas</p>
+                <p class="price__features">✔ Confirmación instantánea</p>
+            </div>
+            <a href="{{ url_for('login') }}" class="price__cta">Elegir plan</a>
+        </div>
+
+        <div class="price__element price__element--best">
+            <p class="price__name">🔥 ¡Mejor opción! 🔥</p>
+            <h3 class="plan__price">$18.000<span class="plan__period">/día</span></h3>
+            <p class="price__desc">Ideal para tu jornada laboral completa</p>
+            <div class="price__items">
+                <p class="price__features">✔ Reserva anticipada garantizada</p>
+                <p class="price__features">✔ Hasta 12 horas de estacionamiento</p>
+                <p class="price__features">✔ Cancelación gratuita hasta 1h antes</p>
+                <p class="price__features">✔ Soporte prioritario</p>
+                <p class="price__features">✔ Ahorra hasta 25% vs. tarifa por hora</p>
+            </div>
+            <a href="{{ url_for('login') }}" class="price__cta">Elegir plan</a>
+        </div>
+
+        <div class="price__element">
+            <p class="price__name">Plan propietario</p>
+            <h3 class="plan__price">Gratis<span class="plan__period">/registro</span></h3>
+            <p class="price__desc">Publica tu garaje y empieza a generar ingresos</p>
+            <div class="price__items">
+                <p class="price__features">✔ Publicación sin costo</p>
+                <p class="price__features">✔ Recibes el 90% de cada reserva</p>
+                <p class="price__features">✔ Pagos seguros y puntuales</p>
+                <p class="price__features">✔ Control total de tu disponibilidad</p>
+            </div>
+            <a href="{{ url_for('login') }}" class="price__cta">Publicar garaje</a>
+        </div>
+
+    </div>
+
+    <p class="price__note">* Tarifas de referencia para Bogotá. Los precios pueden variar según la zona y disponibilidad.</p>
+</section>
+        <!-- SECCIÓN CONTACTO -->
+        <section class="contact container" id="contacto">
+            <h2 class="subtitle">Contáctanos</h2>
+            <p class="contact__intro">
+                ¿Tienes preguntas o quieres publicar tu garaje? Escríbenos y te respondemos pronto.
+            </p>
+
+            <div class="contact__wrapper">
+
+                <form class="contact__form" id="contactForm">
+                    <div class="contact__field">
+                        <label for="contact-name">Nombre</label>
+                        <input type="text" id="contact-name" name="nombre" placeholder="Tu nombre" required>
                     </div>
-                </div>
 
-                <div class="price__element price__element--best">
-                    <p class="price__name">🔥 ¡Mejor opción! 🔥</p>
-                    <h3 class="plan__price">Tarifa por día</h3>
-                    <div class="price__items">
-                        <p class="price__features">Reservas anticipadas aseguradas</p>
+                    <div class="contact__field">
+                        <label for="contact-email">Correo electrónico</label>
+                        <input type="email" id="contact-email" name="email" placeholder="tucorreo@ejemplo.com" required>
                     </div>
-                </div>
 
-                <div class="price__element">
-                    <h3 class="plan__price">Plan propietario</h3>
-                    <div class="price__items">
-                        <p class="price__features">Publica tu garaje gratis</p>
+                    <div class="contact__field">
+                        <label for="contact-message">Mensaje</label>
+                        <textarea id="contact-message" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta contact__submit">Enviar mensaje</button>
+                </form>
+
+                <div class="contact__info">
+                    <div class="contact__info-item">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <p>contacto@parkspotter.com</p>
+                    </div>
+                    <div class="contact__info-item">
+                        <ion-icon name="call-outline"></ion-icon>
+                        <p>+57 300 000 0000</p>
+                    </div>
+                    <div class="contact__info-item">
+                        <ion-icon name="location-outline"></ion-icon>
+                        <p>Bogotá, Colombia</p>
                     </div>
                 </div>
 
@@ -134,6 +302,10 @@
         </section>
 
     </main>
+
+    <footer class="footer">
+        <p>ParkSpotter — Más que parquear, mejor movernos.</p>
+    </footer>
 
     <!-- IonIcons -->
     <script type="module"

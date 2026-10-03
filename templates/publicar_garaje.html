@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkSpotter — Publicar garaje</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_garajes.css') }}">
+</head>
+<body>
+
+    <header class="garaje-nav">
+        <a href="{{ url_for('landing') }}" class="garaje-nav__logo">Park<span>Spotter</span></a>
+        <a href="{{ url_for('mis_garajes') }}" class="garaje-nav__link">
+            <ion-icon name="grid-outline"></ion-icon>
+            Mis garajes
+        </a>
+    </header>
+
+    <main class="garaje-page">
+        <div class="garaje-form-card">
+            <h1 class="garaje-title" id="form-title">Publica tu garaje</h1>
+            <p class="garaje-subtitle">Completa los datos para que los conductores lo encuentren</p>
+
+            <form id="form-garaje" class="garaje-form">
+                <input type="hidden" id="garaje-id" value="">
+
+                <div class="garaje-field">
+                    <label for="titulo">Título del espacio</label>
+                    <input type="text" id="titulo" placeholder="Ej: Garaje cubierto zona norte" required>
+                </div>
+
+                <div class="garaje-field">
+                    <label for="direccion">Dirección</label>
+                    <div class="garaje-input-icon">
+                        <ion-icon name="location-outline"></ion-icon>
+                        <input type="text" id="direccion" placeholder="Calle 123 #45-67, Bogotá" required>
+                    </div>
+                </div>
+
+                <div class="garaje-field">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" rows="4" placeholder="Cuéntale a los conductores sobre tu espacio: acceso, seguridad, cobertura, etc."></textarea>
+                </div>
+
+                <div class="garaje-row">
+                    <div class="garaje-field">
+                        <label for="precio-hora">Precio por hora</label>
+                        <div class="garaje-input-icon">
+                            <span class="garaje-prefix">$</span>
+                            <input type="number" id="precio-hora" placeholder="3000" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="garaje-field">
+                        <label for="precio-dia">Precio por día</label>
+                        <div class="garaje-input-icon">
+                            <span class="garaje-prefix">$</span>
+                            <input type="number" id="precio-dia" placeholder="18000" min="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="garaje-row">
+                    <div class="garaje-field">
+                        <label for="capacidad">Capacidad (vehículos)</label>
+                        <input type="number" id="capacidad" placeholder="1" min="1" required>
+                    </div>
+
+                <div class="garaje-field">
+                    <label for="imagen-file">Foto del garaje</label>
+                    <div class="garaje-upload" id="garaje-upload">
+                        <input type="file" id="imagen-file" accept="image/*" hidden>
+                        <div class="garaje-upload__preview" id="upload-preview">
+                            <ion-icon name="camera-outline"></ion-icon>
+                            <p>Toca para subir una foto</p>
+                            <small>JPG o PNG, máx. 3MB</small>
+                        </div>
+                        <img id="upload-img" class="garaje-upload__img" hidden>
+                        <button type="button" class="garaje-upload__remove" id="remove-img" hidden>
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+                </div>
+
+                <div class="garaje-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="disponible" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span>Disponible para reservas</span>
+                </div>
+
+                <div class="garaje-actions">
+                    <a href="{{ url_for('mis_garajes') }}" class="garaje-btn garaje-btn--outline">Cancelar</a>
+                    <button type="submit" class="garaje-btn garaje-btn--primary" id="submit-btn">Publicar garaje</button>
+                </div>
+            </form>
+
+            <div class="garaje-msg" id="garaje-msg" hidden></div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/garajes.js') }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <nav class="bottom-nav">
+        <a href="{{ url_for('mis_garajes') }}" class="bottom-nav__item">
+            <ion-icon name="business-outline"></ion-icon>
+            <p>Mis garajes</p>
+        </a>
+        <a href="{{ url_for('publicar_garaje') }}" class="bottom-nav__item bottom-nav__item--active">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            <p>Publicar</p>
+        </a>
+        <a href="#" class="bottom-nav__item">
+            <ion-icon name="cash-outline"></ion-icon>
+            <p>Ingresos</p>
+        </a>
+        <a href="{{ url_for('mi_cuenta') }}" class="bottom-nav__item">
+            <ion-icon name="person-outline"></ion-icon>
+            <p>Mi cuenta</p>
+        </a>
+    </nav>
+</body>
+</html>

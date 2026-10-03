@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkSpotter — Mis arriendos</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_garajes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_cuenta.css') }}">
+</head>
+<body>
+
+    <header class="garaje-nav">
+        <a href="{{ url_for('menu') }}" class="garaje-nav__logo">Park<span>Spotter</span></a>
+    </header>
+
+    <main class="garaje-page">
+        <div class="garaje-list-header">
+            <h1 class="garaje-title">Mis arriendos</h1>
+            <p class="garaje-subtitle">Historial de tus reservas de parqueadero</p>
+        </div>
+
+        <div id="reservas-list"></div>
+
+        <div class="empty-state" id="reservas-empty" hidden>
+            <ion-icon name="calendar-outline"></ion-icon>
+            <h2>Aún no tienes reservas</h2>
+            <p>Busca un parqueadero disponible y resérvalo en segundos.</p>
+            <a href="{{ url_for('menu') }}" class="garaje-btn garaje-btn--primary">Buscar parqueadero</a>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="{{ url_for('menu') }}" class="bottom-nav__item">
+            <ion-icon name="home-outline"></ion-icon>
+            <p>Inicio</p>
+        </a>
+        <a href="{{ url_for('mis_arriendos') }}" class="bottom-nav__item bottom-nav__item--active">
+            <ion-icon name="list-outline"></ion-icon>
+            <p>Mis arriendos</p>
+        </a>
+        <a href="{{ url_for('menu') }}" class="bottom-nav__item">
+            <ion-icon name="location-outline"></ion-icon>
+            <p>Buscar</p>
+        </a>
+        <a href="{{ url_for('mi_cuenta') }}" class="bottom-nav__item">
+            <ion-icon name="person-outline"></ion-icon>
+            <p>Mi cuenta</p>
+        </a>
+    </nav>
+
+    <script src="{{ url_for('static', filename='js/arriendos.js') }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -18,12 +18,13 @@ def get_db():
             dbname="parkspotter2",
             user="postgres",
             password="Santysala1!",
-            port=5432
+            port=5432,
+            client_encoding='utf8'
         )
         return conn
     except Exception as e:
         print("\n❌ ERROR DE CONEXIÓN A POSTGRESQL:")
-        print(e)
+        print(repr(e))   # <-- usa repr() en vez de print(e) directo
         return None
 
 
@@ -95,6 +96,9 @@ def register():
     nombre = data.get("name")
     email = data.get("email")
     password = data.get("password")
+    telefono = data.get("telefono")
+    ciudad = data.get("ciudad")
+    rol = data.get("rol", "conductor")
 
     if not nombre or not email or not password:
         return jsonify({"success": False, "message": "Faltan datos"}), 400
@@ -118,9 +122,9 @@ def register():
 
     try:
         cur.execute("""
-            INSERT INTO usuarios (nombre, email, password, verificado)
-            VALUES (%s, %s, %s, FALSE)
-        """, (nombre, email, hashed_pw))
+            INSERT INTO usuarios (nombre, email, password, telefono, ciudad, rol, verificado)
+            VALUES (%s, %s, %s, %s, %s, %s, FALSE)
+        """, (nombre, email, hashed_pw, telefono, ciudad, rol))
 
         conn.commit()
 
@@ -130,7 +134,6 @@ def register():
     finally:
         cur.close()
         conn.close()
-
 
 # -----------------------------------
 #   VERIFICACIÓN POST-LOGIN
@@ -169,6 +172,26 @@ def verificacion():
 def menu():
     return render_template("menu.html")
 
+@app.route("/publicar-garaje")
+def publicar_garaje():
+    return render_template("publicar_garaje.html")
+
+
+@app.route("/mis-garajes")
+def mis_garajes():
+    return render_template("mis_garajes.html")
+
+@app.route("/ingresos")
+def ingresos():
+    return render_template("ingresos.html")
+
+@app.route("/micuenta")
+def mi_cuenta():
+    return render_template("micuenta.html")
+
+@app.route("/mis-arriendos")
+def mis_arriendos():
+    return render_template("mis_arriendos.html")
 
 # -----------------------------------
 #   EJECUCIÓN
@@ -193,6 +216,3 @@ def estado_verificacion(user_id):
 
     return jsonify({"success": True, "verificado": result[0]})
 
-@app.route("/micuenta")
-def mi_cuenta():
-    return render_template("micuenta.html")

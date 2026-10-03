@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkSpotter — Mi cuenta</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_garajes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_cuenta.css') }}">
+</head>
+<body>
+
+    <header class="garaje-nav">
+        <a href="#" class="garaje-nav__logo">Park<span>Spotter</span></a>
+    </header>
+
+    <main class="cuenta-page">
+
+        <div class="cuenta-card">
+            <div class="cuenta-avatar" id="cuenta-avatar">E</div>
+            <h1 class="cuenta-nombre" id="cuenta-nombre">Cargando...</h1>
+            <p class="cuenta-rol" id="cuenta-rol"></p>
+
+            <div class="cuenta-info">
+                <div class="cuenta-info__item">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <div>
+                        <small>Correo electrónico</small>
+                        <p id="cuenta-email">—</p>
+                    </div>
+                </div>
+
+                <div class="cuenta-info__item">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <div>
+                        <small>Teléfono</small>
+                        <p id="cuenta-telefono">—</p>
+                    </div>
+                </div>
+
+                <div class="cuenta-info__item">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <div>
+                        <small>Ciudad</small>
+                        <p id="cuenta-ciudad">—</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cuenta-actions">
+                <button class="garaje-btn garaje-btn--outline" id="btn-editar">
+                    <ion-icon name="create-outline"></ion-icon> Editar perfil
+                </button>
+                <button class="garaje-btn cuenta-btn--logout" id="btn-logout">
+                    <ion-icon name="log-out-outline"></ion-icon> Cerrar sesión
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <nav class="bottom-nav" id="bottom-nav">
+        <!-- Se genera dinámicamente según el rol -->
+    </nav>
+
+    <script src="{{ url_for('static', filename='js/cuenta.js') }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

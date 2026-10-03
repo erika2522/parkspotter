@@ -1,13 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,800;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
+/* VARIABLES DE MARCA - PARKSPOTTER */
+:root {
+    --azul-marino: #0B2D5B;      /* Confianza, Seguridad, Tecnología */
+    --verde-esmeralda: #00C896;  /* Disponibilidad, Movilidad, Crecimiento */
+    --gris-claro: #F4F7FA;       /* Simplicidad, Claridad, Equilibrio */
+}
 
 /* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 /* BODY */
@@ -25,6 +30,7 @@ body {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
+    color: var(--azul-marino);
 }
 
 .hero-login {
@@ -43,7 +49,7 @@ body {
 }
 
 .hero-login .nav_logo .nav__title {
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
     color: #ffffff;
@@ -89,6 +95,8 @@ body::before {
 .container__form h2 {
     font-size: 30px;
     margin-bottom: 20px;
+    color: var(--azul-marino);
+    font-weight: 600;
 }
 
 .social-networks {
@@ -120,7 +128,7 @@ body::before {
     align-items: center;
     gap: 8px;
     padding: 0 15px;
-    background-color: #EEEEEE;
+    background-color: var(--gris-claro);
 }
 
 .container-input input {
@@ -132,7 +140,7 @@ body::before {
 }
 
 .container__form a {
-    color: black;
+    color: var(--azul-marino);
     font-size: 14px;
     margin-bottom: 20px;
     margin-top: 5px;
@@ -144,12 +152,20 @@ body::before {
     width: 170px;
     height: 45px;
     font-size: 15px;
+    font-weight: 600;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    background-color: #3AB397;
+    background-color: var(--verde-esmeralda);
     color: white;
+    transition: background-color 0.3s ease;
+}
+
+.container__form button:hover,
+.welcome-register button:hover,
+.welcome-sing-in button:hover {
+    background-color: var(--azul-marino);
 }
 
 /* ANIMATION FORM */
@@ -181,7 +197,7 @@ body::before {
     display: flex;
     align-items: center;
     transform: translateX(100%);
-    background-color: #3AB397;
+    background-color: var(--verde-esmeralda);
     transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
     overflow: hidden;
     border-radius: 50% 0 0 50%;
@@ -190,7 +206,7 @@ body::before {
 .container.toggle .container-welcome {
     transform: translateX(0);
     border-radius: 0 50% 50% 0;
-    background-color: #3AA8AD;
+    background-color: var(--azul-marino);
 }
 
 .container-welcome .welcome {
@@ -211,6 +227,7 @@ body::before {
 
 .container-welcome h3 {
     font-size: 40px;
+    font-weight: 700;
 }
 
 .container-welcome p {

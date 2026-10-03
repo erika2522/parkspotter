@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root{
     --padding-container: 100px 0;
-    --color-title: #001A49;
+    --azul-marino: #0B2D5B;
+    --verde-esmeralda: #00C896;
+    --gris-claro: #F4F7FA;
+    --color-title: var(--azul-marino);
 }
 
 body{
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     
 }
 
@@ -38,7 +39,7 @@ body{
     left: 0%;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(180deg,rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(255,255,255,255.2) 80%,rgba(255,255,255,1) 100%), url(../images/Parking.jpg);
+    background-image: linear-gradient(180deg, rgba(11,45,91,0.75) 0%, rgba(11,45,91,0.45) 40%, rgba(244,247,250,0.2) 80%, rgba(244,247,250,1) 100%), url(../images/Parking.jpg);
     background-size: cover;
     z-index: -1;
 }
@@ -54,7 +55,7 @@ body{
 
 .nav__title,
 .nav__tile {
-    font-family: 'Zalando Sans Expanded', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     margin: 0;
 }
@@ -81,6 +82,11 @@ body{
     text-decoration: none;
     display: inline-block;
     padding: .25rem .5rem;
+    transition: color 0.2s ease;
+}
+
+.nav__links:hover {
+    color: var(--verde-esmeralda);
 }
 
 
@@ -131,25 +137,28 @@ body{
 
 .hero__title{
     font-size: 3rem;
+    font-weight: 700;
 }
 
 .hero__paragraph{
     margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .cta{
     display: inline-block;
-    background: linear-gradient(90deg,#00A3C8, #5BE95B);
+    background: var(--verde-esmeralda);
     justify-self: center;
     color: #fff;
     text-decoration: none;
     padding: 13px 30px;
     border-radius: 30px;
     font-weight: 600;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .cta:hover{
+    background-color: var(--azul-marino);
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
@@ -164,6 +173,7 @@ body{
 .subtitle {
     color: var(--color-title);
     font-size: 2rem;
+    font-weight: 600;
     margin-bottom: 25px;
 }
 
@@ -191,7 +201,7 @@ body{
 }
 
 .about__icon {
-    stroke: #00A3C8;
+    stroke: var(--verde-esmeralda);
     fill: none;
     width: 40px;
 }
@@ -199,8 +209,8 @@ body{
 /* knowledge */
 
 .knowledge {
-    background-color: #e3fffd;
-    background-image:  radial-gradient(#45f75d 0.5px, transparent 0.5px), radial-gradient(#45f75d 0.5px, #e3fffd 0.5px);
+    background-color: var(--gris-claro);
+    background-image:  radial-gradient(#00C896 0.5px, transparent 0.5px), radial-gradient(#00C896 0.5px, var(--gris-claro) 0.5px);
     background-size: 20px 20px;
     background-position: 0 0,10px 10px;
     overflow: hidden;
@@ -237,17 +247,15 @@ body{
 }
 
 .price__element--best{
-
-
     --color-plan: #696871;
-    --color-price: #1D293F;
+    --color-price: var(--azul-marino);
     --bg-cta: #fff;
-    --color-cta: #5454D4;
+    --color-cta: var(--verde-esmeralda);
     --color-items: #696871;
 }
 
 .price__element{
-    background-color: #eef2ff;
+    background-color: var(--gris-claro);
     border-radius: 20px; 
     padding: 50px 40px;
     width: 350px;
@@ -263,7 +271,7 @@ body{
 .plan__price{
     font-size: 2.8rem;
     font-weight: 700;
-    color: #1D293F;
+    color: var(--azul-marino);
     margin-bottom: 20px;
 }
 
@@ -287,11 +295,15 @@ body{
     padding: 20px 0;
     border-radius: 10px;
     text-decoration: none;
-    background-color: var(--bg cta);
     font-weight: 600;
     color: #fff;
-    background: linear-gradient(90deg,#00A3C8, #5BE95B);
+    background: var(--verde-esmeralda);
     box-shadow: 0 0 1px rgba(0, 0, 0, .5);
+    transition: background-color 0.2s ease;
+}
+
+.price__cta:hover{
+    background: var(--azul-marino);
 }
 
 .price__table{
@@ -300,4 +312,251 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     gap: 3.5em;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* CÓMO FUNCIONA */
+.how {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.how__intro {
+    color: #696871;
+    margin-bottom: 50px;
+}
+
+.how__group {
+    margin-bottom: 60px;
+}
+
+.how__group-title {
+    color: var(--azul-marino);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.how__steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5em;
+}
+
+.how__step {
+    background-color: var(--gris-claro);
+    border-radius: 16px;
+    padding: 30px 20px;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.how__step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.how__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--verde-esmeralda);
+    color: white;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.how__step h4 {
+    color: var(--azul-marino);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.how__step p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* BENEFICIOS */
+.benefits {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.benefits__intro {
+    color: #696871;
+    margin-bottom: 50px;
+}
+
+.benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5em;
+}
+
+.benefits__card {
+    background-color: var(--gris-claro);
+    border-radius: 16px;
+    padding: 35px 25px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.benefits__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.benefits__card ion-icon {
+    font-size: 2.2rem;
+    color: var(--verde-esmeralda);
+    margin-bottom: 15px;
+}
+
+.benefits__card h3 {
+    color: var(--azul-marino);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.benefits__card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* CONTACTO */
+.contact {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.contact__intro {
+    color: #696871;
+    margin-bottom: 50px;
+}
+
+.contact__wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3em;
+    text-align: left;
+}
+
+.contact__form {
+    display: grid;
+    gap: 1.2em;
+}
+
+.contact__field {
+    display: grid;
+    gap: 0.4em;
+}
+
+.contact__field label {
+    font-weight: 600;
+    color: var(--azul-marino);
+    font-size: 0.9rem;
+}
+
+.contact__field input,
+.contact__field textarea {
+    border: 1px solid #dcdfe3;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.95rem;
+    resize: vertical;
+}
+
+.contact__field input:focus,
+.contact__field textarea:focus {
+    outline: none;
+    border-color: var(--verde-esmeralda);
+}
+
+.contact__submit {
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.contact__info {
+    display: grid;
+    align-content: start;
+    gap: 1.5em;
+    background-color: var(--gris-claro);
+    border-radius: 16px;
+    padding: 35px 25px;
+}
+
+.contact__info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact__info-item ion-icon {
+    font-size: 1.5rem;
+    color: var(--verde-esmeralda);
+    flex-shrink: 0;
+}
+
+.contact__info-item p {
+    font-size: 0.95rem;
+    color: var(--azul-marino);
+}
+
+@media (max-width: 768px) {
+    .contact__wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FOOTER */
+.footer {
+    background-color: var(--azul-marino);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.9rem;
+}
+
+.price__intro {
+    color: #696871;
+    margin-bottom: 40px;
+}
+
+.price__desc {
+    font-size: 0.9rem;
+    color: #696871;
+    margin-bottom: 25px;
+}
+
+.plan__period {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #696871;
+}
+
+.price__element--best .plan__period {
+    color: rgba(255,255,255,0.8);
+}
+
+.price__features {
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.price__note {
+    margin-top: 35px;
+    font-size: 0.8rem;
+    color: #9a9a9a;
 }

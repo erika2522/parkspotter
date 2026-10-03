@@ -3,46 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar parqueadero</title>
+    <title>ParkSpotter — Buscar parqueadero</title>
 
-    <!-- CSS DEL MENÚ -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_menu.css') }}">
 
     <!-- Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
 
-    <header class="header">
-        <h2>¡Busquemos un parqueadero disponible!</h2>
+    <header class="menu-header">
+        <div class="menu-header__brand">Park<span>Spotter</span></div>
+        <h1 class="menu-header__title">¡Busquemos un parqueadero disponible!</h1>
+
+        <div class="menu-search">
+            <ion-icon name="search-outline"></ion-icon>
+            <input type="text" id="search-input" placeholder="Buscar por dirección o zona...">
+        </div>
     </header>
 
-    <div class="map-container">
+    <div class="map-wrapper">
         <div id="map"></div>
+
+        <div class="map-legend">
+            <span class="map-legend__dot map-legend__dot--available"></span> Disponible
+            <span class="map-legend__dot map-legend__dot--busy"></span> Ocupado
+        </div>
+    </div>
+
+    <div class="garaje-sheet" id="garaje-sheet" hidden>
+        <div class="garaje-sheet__handle"></div>
+        <button class="garaje-sheet__close" id="close-sheet">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <div class="garaje-sheet__content" id="sheet-content">
+            <!-- Contenido dinámico del garaje seleccionado -->
+        </div>
     </div>
 
     <nav class="bottom-nav">
-        <div class="item">
-            <img src="https://img.icons8.com/ios-filled/50/home.png" alt="Inicio">
+        <a href="{{ url_for('menu') }}" class="bottom-nav__item bottom-nav__item--active">
+            <ion-icon name="home-outline"></ion-icon>
             <p>Inicio</p>
-        </div>
-        <div class="item">
-            <img src="https://img.icons8.com/ios-filled/50/list.png" alt="Mis arriendos">
+        </a>
+        <a href="{{ url_for('mis_arriendos') }}" class="bottom-nav__item">
+            <ion-icon name="list-outline"></ion-icon>
             <p>Mis arriendos</p>
-        </div>
-        <div class="item">
-            <img src="https://img.icons8.com/ios-filled/50/marker.png" alt="Buscar">
+        </a>
+        <a href="#" class="bottom-nav__item" id="btn-buscar">
+            <ion-icon name="location-outline"></ion-icon>
             <p>Buscar</p>
-        </div>
-        <div class="item" onclick="irCuenta()">
-            <img src="https://img.icons8.com/ios-filled/50/user.png">
-             <p>Mi cuenta</p>
-        </div>
-
+        </a>
+        <a href="{{ url_for('mi_cuenta') }}" class="bottom-nav__item">
+                <ion-icon name="person-outline"></ion-icon>
+            <p>Mi cuenta</p>
+        </a>
     </nav>
 
     <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

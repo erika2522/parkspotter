@@ -3,90 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Inicia sesión!</title>
+    <title>ParkSpotter — Iniciar sesión</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos_login.css') }}">
 </head>
 
 <body>
 
+    <header class="auth-nav">
+        <a href="{{ url_for('landing') }}" class="auth-nav__logo">Park<span>Spotter</span></a>
+        <a href="{{ url_for('landing') }}" class="auth-nav__back">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            Volver al inicio
+        </a>
+    </header>
 
+    <div class="auth-wrapper">
 
-    <!-- CONTENEDOR LOGIN SIN PADDING -->
-    <div class="container login-container">
+        <div class="auth-side">
+            <h1 class="auth-side__title">Park<span>Spotter</span></h1>
+            <p class="auth-side__subtitle">Encuentra tu espacio en segundos</p>
+            <ul class="auth-side__list">
+                <li><ion-icon name="checkmark-circle-outline"></ion-icon> Reserva parqueaderos en tiempo real</li>
+                <li><ion-icon name="checkmark-circle-outline"></ion-icon> Publica tu garaje y genera ingresos</li>
+                <li><ion-icon name="checkmark-circle-outline"></ion-icon> Pagos digitales 100% seguros</li>
+            </ul>
+        </div>
 
-        <!-- FORMULARIO LOGIN -->
-        <div class="container__form">
-            <form class="sign-in" id="form-login">
-                <h2>Iniciar sesión</h2>
+        <div class="auth-card">
 
-                <div class="social-networks">
+            <!-- VISTA: LOGIN -->
+            <div class="auth-view" id="view-login">
+                <h2 class="auth-title">Bienvenido de nuevo</h2>
+                <p class="auth-subtitle">Inicia sesión para continuar</p>
+
+                <form id="form-login" class="auth-form">
+                    <div class="auth-field">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" id="email" placeholder="Correo electrónico" required>
+                    </div>
+
+                    <div class="auth-field">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="password" placeholder="Contraseña" required>
+                        <ion-icon name="eye-outline" class="auth-field__toggle" data-target="password"></ion-icon>
+                    </div>
+
+                    <a href="#" class="auth-forgot">¿Olvidaste tu contraseña?</a>
+
+                    <button type="submit" class="auth-btn">Iniciar sesión</button>
+                </form>
+
+                <div class="auth-divider"><span>o continúa con</span></div>
+
+                <button type="button" class="auth-btn auth-btn--google">
                     <ion-icon name="logo-google"></ion-icon>
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </div>
+                    Continuar con Google
+                </button>
 
-                <span>Use su correo y contraseña</span>
-
-                <div class="container-input">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <input type="text" id="email" placeholder="Email" required>
-                </div>
-
-                <div class="container-input">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" id="password" placeholder="Contraseña" required>
-                </div>
-
-                <button type="submit" class="btn">Iniciar sesión</button>
-            </form>
-        </div>
-
-        <!-- FORMULARIO REGISTRO -->
-        <div class="container__form">
-            <form class="sign-up" id="form-register">
-                <h2>Crear cuenta</h2>
-
-                <div class="container-input">
-                    <ion-icon name="person-outline"></ion-icon>
-                    <input type="text" id="reg-name" placeholder="Nombre completo" required>
-                </div>
-
-                <div class="container-input">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <input type="email" id="reg-email" placeholder="Email" required>
-                </div>
-
-                <div class="container-input">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" id="reg-password" placeholder="Contraseña" required>
-                </div>
-
-                <button type="submit" class="btn">Registrarse</button>
-            </form>
-        </div>
-
-        <!-- PANEL DE BIENVENIDA -->
-        <div class="container-welcome">
-
-            <div class="welcome-register welcome">
-                <h3>Bienvenido</h3>
-                <p>Ingresa tus datos personales para acceder a ParkSpotter</p>
-                <button class="button" id="btn-register" type="button">Registrarse</button>
+                <p class="auth-switch">
+                    ¿No tienes cuenta?
+                    <a href="#" id="go-to-register">Regístrate</a>
+                </p>
             </div>
 
-            <div class="welcome-sing-in welcome">
-                <h3>Hola</h3>
-                <p>Regístrate con tus datos personales para acceder a ParkSpotter</p>
-                <button class="button" id="btn-sign-in" type="button">Iniciar sesión</button>
+            <!-- VISTA: REGISTRO -->
+            <div class="auth-view" id="view-register" hidden>
+                <h2 class="auth-title">Crea tu cuenta</h2>
+                <p class="auth-subtitle">Dinos cómo quieres usar ParkSpotter</p>
+
+                <div class="role-selector">
+                    <button type="button" class="role-option active" data-role="conductor">
+                        <ion-icon name="car-outline"></ion-icon>
+                        <span>Conductor</span>
+                        <small>Busca y reserva</small>
+                    </button>
+                    <button type="button" class="role-option" data-role="propietario">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <span>Propietario</span>
+                        <small>Publica tu garaje</small>
+                    </button>
+                </div>
+
+                <form id="form-register" class="auth-form">
+                    <input type="hidden" id="reg-role" value="conductor">
+
+                    <div class="auth-field">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" id="reg-name" placeholder="Nombre completo" required>
+                    </div>
+
+                    <div class="auth-field">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" id="reg-email" placeholder="Correo electrónico" required>
+                    </div>
+
+                    <div class="auth-field">
+                        <ion-icon name="call-outline"></ion-icon>
+                        <input type="tel" id="reg-phone" placeholder="Teléfono de contacto" required>
+                    </div>
+
+                    <div class="auth-field">
+                        <ion-icon name="location-outline"></ion-icon>
+                        <input type="text" id="reg-city" placeholder="Ciudad" value="Bogotá" required>
+                    </div>
+
+                    <div class="auth-field">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="reg-password" placeholder="Contraseña" required>
+                        <ion-icon name="eye-outline" class="auth-field__toggle" data-target="reg-password"></ion-icon>
+                    </div>
+
+                    <div class="auth-field">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="reg-password-confirm" placeholder="Confirmar contraseña" required>
+                        <ion-icon name="eye-outline" class="auth-field__toggle" data-target="reg-password-confirm"></ion-icon>
+                    </div>
+
+                    <button type="submit" class="auth-btn" id="btn-register-submit">Registrarme como conductor</button>
+                </form>
+
+                <p class="auth-switch">
+                    ¿Ya tienes cuenta?
+                    <a href="#" id="go-to-login">Inicia sesión</a>
+                </p>
             </div>
+
+            <div class="auth-msg" id="auth-msg" hidden></div>
 
         </div>
 
     </div>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 

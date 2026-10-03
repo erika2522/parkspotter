@@ -7,5 +7,6 @@ def get_db():
         host=DB_CONFIG["host"],
         database=DB_CONFIG["database"],
         user=DB_CONFIG["user"],
-        password=DB_CONFIG["password"]
+        password=DB_CONFIG["password"],
+        client_encoding='utf8'
     )

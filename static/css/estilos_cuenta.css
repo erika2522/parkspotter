@@ -1,0 +1,164 @@
+.cuenta-page {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 50px 24px 100px;
+}
+
+.cuenta-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.cuenta-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--azul-marino), var(--verde-esmeralda));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.cuenta-nombre {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+    text-transform: capitalize;
+}
+
+.cuenta-rol {
+    display: inline-block;
+    background: #effaf6;
+    color: var(--verde-esmeralda);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.cuenta-info {
+    display: grid;
+    gap: 18px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.cuenta-info__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--gris-claro);
+    border-radius: 12px;
+}
+
+.cuenta-info__item ion-icon {
+    font-size: 1.3rem;
+    color: var(--verde-esmeralda);
+    flex-shrink: 0;
+}
+
+.cuenta-info__item small {
+    display: block;
+    color: #8a94a6;
+    font-size: 0.7rem;
+}
+
+.cuenta-info__item p {
+    margin: 2px 0 0;
+    font-weight: 600;
+    color: var(--azul-marino);
+    font-size: 0.9rem;
+}
+
+.cuenta-actions {
+    display: grid;
+    gap: 10px;
+}
+
+.cuenta-btn--logout {
+    background: #fdecea;
+    color: #c0392b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cuenta-btn--logout:hover {
+    background: #c0392b;
+    color: #fff;
+}
+
+.garaje-btn--outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* EMPTY STATE (Ingresos) */
+.empty-state {
+    text-align: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 60px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.empty-state ion-icon {
+    font-size: 3rem;
+    color: var(--verde-esmeralda);
+    margin-bottom: 16px;
+}
+
+.empty-state h2 {
+    color: var(--azul-marino);
+    margin: 0 0 8px;
+}
+
+.empty-state p {
+    color: #8a94a6;
+    margin: 0 0 24px;
+}
+
+/* RESUMEN DE INGRESOS */
+.ingresos-resumen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.ingresos-resumen__item {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.ingresos-resumen__item small {
+    display: block;
+    color: #8a94a6;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+}
+
+.ingresos-resumen__item strong {
+    font-size: 1.4rem;
+    color: var(--azul-marino);
+}
+
+#total-ganado {
+    color: var(--verde-esmeralda);
+}

@@ -1,81 +1,310 @@
-@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --azul-marino: #0B2D5B;
+    --verde-esmeralda: #00C896;
+    --gris-claro: #F4F7FA;
 }
 
-/* Que la pantalla se comporte como app en columna */
+* { box-sizing: border-box; }
+
 html, body {
+    margin: 0;
     height: 100%;
-    font-family: 'Zalando Sans Expanded', sans-serif;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    background-color: #f5f5f5;
-    font-family: 'Zalando Sans Expanded', sans-serif;
-}
-
-/* Header superior */
-.header {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 12px 16px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-family: 'Zalando Sans Expanded', sans-serif;
-}
-
-.header h2 {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-/* Contenedor del mapa ocupa todo el espacio central */
-.map-container {
-    flex: 1;              /* Esto hace que crezca para llenar el espacio */
-    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    background: var(--gris-claro);
     overflow: hidden;
 }
 
-/* El mapa en sí mismo debe tener altura explícita */
-#map {
-    width: 100%;
-    height: 100%;         /* Llena el contenedor */
+/* HEADER */
+.menu-header {
+    background: linear-gradient(135deg, var(--azul-marino) 0%, #16407a 100%);
+    color: #fff;
+    padding: 20px 24px 28px;
+    border-radius: 0 0 24px 24px;
+    position: relative;
+    z-index: 5;
 }
 
-/* Barra de navegación inferior */
+.menu-header__brand {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.menu-header__brand span { color: var(--verde-esmeralda); }
+
+.menu-header__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+}
+
+.menu-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+.menu-search ion-icon {
+    color: #8a94a6;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.menu-search input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    color: var(--azul-marino);
+}
+
+/* MAPA */
+.map-wrapper {
+    position: relative;
+    height: calc(100vh - 158px - 72px); /* header - bottom nav */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-legend {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    color: var(--azul-marino);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 400;
+}
+
+.map-legend__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.map-legend__dot--available { background: var(--verde-esmeralda); }
+.map-legend__dot--busy { background: #e74c3c; margin-left: 10px; }
+
+/* Popups de Leaflet con estilo de marca */
+.leaflet-popup-content-wrapper {
+    border-radius: 14px;
+    padding: 0;
+}
+
+.leaflet-popup-content {
+    margin: 0;
+    width: 220px !important;
+}
+
+.garaje-popup {
+    padding: 14px 16px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.garaje-popup h4 {
+    margin: 0 0 4px;
+    color: var(--azul-marino);
+    font-size: 0.95rem;
+}
+
+.garaje-popup p {
+    margin: 0 0 8px;
+    font-size: 0.8rem;
+    color: #8a94a6;
+}
+
+.garaje-popup .precio {
+    font-weight: 700;
+    color: var(--verde-esmeralda);
+    font-size: 0.95rem;
+}
+
+/* BOTTOM SHEET (detalle del garaje seleccionado) */
+.garaje-sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.12);
+    padding: 12px 24px 24px;
+    z-index: 1000;
+    max-height: 45vh;
+    overflow-y: auto;
+    animation: sheet-up 0.25s ease-out;
+}
+
+@keyframes sheet-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.garaje-sheet__handle {
+    width: 40px;
+    height: 4px;
+    background: #e2e6ec;
+    border-radius: 4px;
+    margin: 0 auto 14px;
+}
+
+.garaje-sheet__close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: var(--gris-claro);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--azul-marino);
+}
+
+/* BOTTOM NAV */
 .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    background: #fff;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 8px 0;
-    background-color: #ffffff;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+    z-index: 500;
 }
 
-.bottom-nav .item {
+.bottom-nav__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 0.75rem;
-    color: #333;
-    flex: 1;
+    gap: 3px;
+    text-decoration: none;
+    color: #8a94a6;
+    font-size: 0.7rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
 }
 
-.bottom-nav img {
+.bottom-nav__item ion-icon {
+    font-size: 1.4rem;
+}
+
+.bottom-nav__item--active,
+.bottom-nav__item:hover {
+    color: var(--verde-esmeralda);
+}
+
+/* SELECTOR DE MODALIDAD (hora/día) */
+.reserva-modo {
+    display: inline-flex;
+    background: var(--gris-claro);
+    border-radius: 10px;
+    padding: 3px;
+    margin-bottom: 18px;
+}
+
+.reserva-modo__btn {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: #8a94a6;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.reserva-modo__btn.active {
+    background: #fff;
+    color: var(--azul-marino);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* SELECTOR DE CANTIDAD */
+.reserva-cantidad {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 0.82rem;
+    color: #8a94a6;
+    font-weight: 500;
+}
+
+.reserva-cantidad__control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reserva-cantidad__control button {
     width: 24px;
     height: 24px;
-    margin-bottom: 4px;
+    border-radius: 50%;
+    border: 1px solid #e2e6ec;
+    background: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--azul-marino);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
-/* Opcional: resaltar el ítem "Inicio" como activo */
-.bottom-nav .item:first-child p {
-    font-weight: 600;
-    color: #4CAF50;
+.reserva-cantidad__control button:hover {
+    border-color: var(--verde-esmeralda);
+    color: var(--verde-esmeralda);
+}
+
+.reserva-cantidad__control span {
+    min-width: 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--azul-marino);
+}
+
+/* TOTAL A PAGAR */
+.reserva-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    margin-bottom: 14px;
+    border-top: 1px solid #eef1f5;
+    font-size: 0.82rem;
+    color: #8a94a6;
+}
+
+.reserva-total strong {
+    font-size: 1.05rem;
+    color: var(--azul-marino);
+    font-weight: 700;
 }
